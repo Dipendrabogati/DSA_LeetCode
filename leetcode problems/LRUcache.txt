@@ -1,0 +1,40 @@
+class LRUCache {
+  int? capacity;
+  List<Map<String, dynamic>> cache = [];
+
+  LRUCache(int capacity) {
+    this.capacity = capacity;
+  }
+
+  int get(int key) {
+    for (int i = 0; i < cache.length; i++) {
+      if (cache[i]['key'] == key) {
+       
+        Map<String, dynamic> accessedElement = cache.removeAt(i);
+        cache.insert(0, accessedElement);
+        return accessedElement['value'];
+      }
+    }
+    return -1;
+  }
+
+  void put(int key, int value) {
+    for (int i = 0; i < cache.length; i++) {
+      if (cache[i]['key'] == key) {
+        cache[i]['value'] = value;
+        Map<String, dynamic> accessedElement = cache.removeAt(i);
+        cache.insert(0, accessedElement);
+        return;
+      }
+    }
+    if (capacity == cache.length) {
+      cache.removeLast();
+    }
+
+
+    Map<String, dynamic> newPair = {'key': key, 'value': value};
+    cache.insert(0, newPair);
+  }
+}
+
+

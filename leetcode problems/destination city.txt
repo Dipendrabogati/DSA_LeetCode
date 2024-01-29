@@ -1,0 +1,19 @@
+string destCity(vector<vector<string>>& paths) {
+      string destination;
+      int s=paths.size();
+      
+      int s1=paths[0].size(); 
+      destination=paths[0][s1-1];
+      
+       for(int i=1;i<paths.size();i++){
+          for(int j=1;j<paths.size();j++){
+            if(destination==paths[j][0]){
+                 destination=paths[j][1];
+                break; 
+             }
+          }   
+             
+       }  
+
+     return destination;
+    }

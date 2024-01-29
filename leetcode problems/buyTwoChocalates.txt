@@ -1,0 +1,13 @@
+class Solution {
+  int buyChoco(List<int> prices, int money) {
+      int buffer=-1;
+      for(int i=0;i<prices.length;i++){
+          for(int j=i+1;j<prices.length;j++){
+            if((prices[i]+prices[j])<=money && buffer<money-(prices            [i]+prices[j])){
+                buffer=money-(prices[i]+prices[j]);                
+            }    
+          }
+        }
+        return (buffer>=0)?buffer: money;
+    }
+}

@@ -1,0 +1,38 @@
+bool closeStrings(string word1, string word2) {
+        if(word1.length()!=word2.length()){
+            return false;
+        }
+        map<char,int> m1;
+        map<char,int> m2; 
+        for(int i=0;i<word1.length();i++){
+            m1[word1[i]]++;
+            m2[word2[i]]++;
+        }
+        vector<int> v;
+        for(const auto& pair :m2){
+          v.push_back(pair.second);
+        }
+        for(auto it:m1){
+            bool b=false;bool b1=false;
+            for(int i=0;i<v.size();i++){
+              if(it.second==v[i]){
+                 b=true;
+                 v.erase(v.begin()+i);
+                 break;
+              }
+            }
+            for(auto pair:m2){
+               if(it.first==pair.first){
+                   b1=true;
+               }
+            }
+            if(!b||!b1){
+                return false;
+            }
+           
+        }
+        if(v.size()!=0){
+            return false;
+        } 
+        return true; 
+    }

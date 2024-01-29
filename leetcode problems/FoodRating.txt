@@ -1,0 +1,38 @@
+class FoodRatings {
+public:
+    std::map<std::string, int> foodwithRate;
+    std::map<std::string, std::string> foodwithC;
+
+    FoodRatings(vector<string>& foods,vector<string>& cuisines,vector<int>& ratings) {
+        for (int i = 0; i < foods.size(); ++i) {
+            foodwithRate[foods[i]] = ratings[i];
+            foodwithC[foods[i]] = cuisines[i];
+        }
+    }
+
+    void changeRating(const std::string& food, int newRating) {
+        auto it = foodwithRate.find(food);
+        if (it != foodwithRate.end()) {
+            it->second = newRating;
+        }
+    }
+
+    string highestRated(string  cuisine) {
+        string highestRatedFood;
+        int maxRating = -1;
+
+        string smallestName;
+
+    for (const auto& pair : foodwithRate) {
+        if (foodwithC[pair.first] == cuisine) {
+            if (pair.second > maxRating || (pair.second == maxRating && pair.first < smallestName)) {
+                maxRating = pair.second;
+                highestRatedFood = pair.first;
+                smallestName = pair.first;
+            }
+        }
+    }
+
+        return highestRatedFood;
+    }
+};

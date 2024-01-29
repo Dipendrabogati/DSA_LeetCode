@@ -1,0 +1,25 @@
+void bubleSort(List arr,int size) {
+  
+ if(size==1){
+   return;
+ } 
+  
+  for(int i=0;i<size-1;i++){
+    if(arr[i]>arr[i+1]){
+      int temp=arr[i];
+      arr[i]=arr[i+1];
+      arr[i+1]=temp;
+    }
+  }
+   bubleSort(arr,size-1);
+   
+}
+
+void main() {
+  List arr=[12,2,5,2,3,4,1,8,0];
+  bubleSort(arr,arr.length);
+  
+   print(arr);
+
+ 
+}

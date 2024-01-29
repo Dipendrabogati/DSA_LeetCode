@@ -1,0 +1,27 @@
+bool makeEqual(vector<string>& w) {
+       map<char,int> m;
+       int size=w.size();
+       string s;
+       for(int i=0;i<w.size();i++){
+          for(int j=0;j<w[i].length();j++){
+             s.push_back(w[i][j]);
+          }
+       } 
+       for(int i=0;i<s.length();i++){
+           int count=1;
+           for(int j=i+1;j<s.length();j++){
+              if(s[i]==s[j]){
+                  count++;
+              }
+           }
+           m.insert({s[i],count});
+        }
+        bool flag=true;
+        for(auto pair: m){
+            if((pair.second%size)!=0){
+               flag=false;
+            }
+        }
+
+        return flag;
+    }

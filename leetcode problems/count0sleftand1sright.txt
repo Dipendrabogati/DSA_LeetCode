@@ -1,0 +1,21 @@
+int maxScore(string s) {
+        int answer=-1;
+        int lc=0;
+        // string left,right;
+        for(int i=0;i<s.length()-1;i++){
+           if(s[i]=='0'){
+               lc+=1;
+           }
+           int rc=0;
+           for(int j=i+1;j<s.length();j++){
+               
+               if(s[j]=='1'){
+                   rc+=1;
+               }               
+           }
+           if((lc+rc)>answer){
+                   answer=lc+rc;
+           } 
+        }
+        return answer;
+    }

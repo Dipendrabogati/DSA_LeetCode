@@ -1,0 +1,12 @@
+int rangeSumBST(TreeNode* root, int low, int high) {
+    if (!root) {
+        return 0;
+    }
+    int current_sum = 0;
+    if (low <= root->val && root->val <= high) {
+        current_sum += root->val;
+    }
+    current_sum += rangeSumBST(root->left, low, high);
+    current_sum += rangeSumBST(root->right, low, high);
+    return current_sum;
+}

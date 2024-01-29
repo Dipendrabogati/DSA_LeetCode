@@ -1,0 +1,15 @@
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int a) { 
+        nums1.resize(m);    
+        for(int j=0;j<a;j++){
+            bool flag=true;
+            for(int i=0;i<nums1.size();i++){    
+                if(nums2[j]<=nums1[i]){
+                    nums1.insert(nums1.begin()+i,nums2[j]);
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag==true)
+             nums1.push_back(nums2[j]);           
+        }
+    }

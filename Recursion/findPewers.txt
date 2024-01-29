@@ -1,0 +1,21 @@
+int findPower(int n,int p) {
+  print(p);
+  if(p==1){
+    return n;
+  }
+  int val=findPower(n,(p~/2));
+   
+  if(p%2==0){
+    return val*val;
+  }else{
+    return val*val*n;
+  }
+  
+}
+
+void main() {
+  int numbers=2;int power=5;
+  int largestNumber = findPower(numbers,power);
+
+  print("The number is : $largestNumber");
+}

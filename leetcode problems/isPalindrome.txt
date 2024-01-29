@@ -1,0 +1,26 @@
+bool isPalindrome(int x) {
+       int n=x; 
+       if(x<0){
+           return false;
+       }
+       int reverseNum=0;
+       while(x>0){
+         int remainder=x%10;
+         x=x/10;
+         if (reverseNum > (INT_MAX - remainder) / 10) {
+            return false;
+        } else {
+            reverseNum = reverseNum * 10 + remainder;
+        }
+         
+         
+       }
+       if(reverseNum==n){
+           return true;
+       }
+       else{
+           return false;
+       }
+
+       
+    }

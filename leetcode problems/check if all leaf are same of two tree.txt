@@ -1,0 +1,45 @@
+vector<int> v1;
+     vector<int> v2; 
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+       firstTree(root1,v1); 
+       secondTree(root2,v2);
+       bool isSame=true;
+       cout<<v1.size()<<"-"<<v2.size();
+       if(v1.size()!=v2.size()){
+           
+           return false;
+       }else{
+           int i=0;
+           while(i<v1.size()){
+               if(v1[i]!=v2[i]){
+                   
+                  return false;
+               }
+               i++;
+           }
+       }
+       return true;
+    }
+
+void firstTree(TreeNode* root,vector<int> &v1){
+     if (root == NULL) {
+            return;
+        }
+    if(root->right==NULL && root->left==NULL){
+        v1.push_back(root->val);
+        return;
+    }
+    firstTree(root->left,v1);
+    firstTree(root->right,v1);
+ }
+ void secondTree(TreeNode* root, vector<int> &v2){
+     if (root == NULL) {
+            return;
+        }
+    if(root->right==NULL && root->left==NULL){
+        v2.push_back(root->val);
+        return;
+    }
+    secondTree(root->left,v2);
+    secondTree(root->right,v2);
+ }

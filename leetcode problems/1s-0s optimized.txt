@@ -1,0 +1,52 @@
+#include <vector>
+
+class Solution {
+public:
+    std::vector<std::vector<int>> onesMinusZeros(std::vector<std::vector<int>>& grid) {
+        if (grid.empty() || grid[0].empty()) {
+            return {};
+        }
+
+        int rows = grid.size();
+        int cols = grid[0].size();
+
+        std::vector<int> row(rows, 0);
+        std::vector<int> col(cols, 0);
+
+        std::vector<std::vector<int>> result(rows, std::vector<int>(cols, 0));
+
+        for (int i = 0; i < rows; i++) {
+            int onesC = 0;
+            int zeroC = 0;
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == 1) {
+                    onesC += 1;
+                } else {
+                    zeroC += 1;
+                }
+            }
+            row[i] = onesC - zeroC;
+        }
+
+        for (int i = 0; i < cols; i++) {
+            int onesC = 0;
+            int zeroC = 0;
+            for (int j = 0; j < rows; j++) {
+                if (grid[j][i] == 1) {
+                    onesC += 1;
+                } else {
+                    zeroC += 1;
+                }
+            }
+            col[i] = onesC - zeroC;
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = col[j] + row[i];
+            }
+        }
+
+        return result;
+    }
+};
