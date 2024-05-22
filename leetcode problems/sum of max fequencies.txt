@@ -1,0 +1,17 @@
+int maxFrequencyElements(vector<int>& nums) {
+      unordered_map<int,int> m;
+      for(int n :nums){
+           m[n]++;
+      } 
+      int max=-1;
+      for(auto it:m){
+        if(it.second>max)max=it.second;
+      } 
+      int freq=0;
+      for(const auto pair:m){
+          if(pair.second==max){
+              freq++;
+          }
+      }
+     return max*freq;      
+    }

@@ -1,0 +1,9 @@
+int majorityElement(vector<int>& nums) {       
+        int size=nums.size();
+        map<int,int> m;
+        for(int n : nums){
+            m[n]++;
+            if(m[n]>size/2)return n;
+        }    
+     return -1;
+    }

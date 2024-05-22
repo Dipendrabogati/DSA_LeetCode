@@ -1,0 +1,19 @@
+vector<int> rearrangeArray(vector<int>& nums) {
+       queue<int> negArr;
+       queue<int> posArr;
+       for(int n:nums){
+         if(n<0){
+             negArr.push(n);
+         }else{
+             posArr.push(n);
+         }
+       } 
+       vector<int> ans;
+       while(!negArr.empty()){
+           ans.push_back(posArr.front());
+           ans.push_back(negArr.front());
+           posArr.pop();
+           negArr.pop();
+       }
+       return ans;
+    }

@@ -1,0 +1,20 @@
+string maximumOddBinaryNumber(string s) {
+       int n=s.size();
+       vector<char> v(n,'0');
+       int count;
+       for(int i=0;i<n;i++){
+          if(s[i]=='1'){
+              v[n-1]=s[i];
+              count=i;
+          } 
+       } 
+       int j=0;
+       for(int i=0;i<n;i++){
+           if(s[i]=='1' && i!=count){
+             v[j]=s[i];
+             j++; 
+           }
+       }
+       string result(v.begin(),v.end());
+       return result;
+    }

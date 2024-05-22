@@ -1,0 +1,18 @@
+int chekPalindrome(string s,int start,int end){
+        int count =0; 
+        while(start>=0 && end<s.size() && s[start]==s[end]){
+            count++;
+            start--;
+            end++;
+        }
+        return count;
+    }
+
+    int countSubstrings(string s) {     
+      int oddCount=0;int evenCount=0;
+      for(int i=0;i<s.size();i++){
+         oddCount+=chekPalindrome(s,i,i);
+         evenCount+=chekPalindrome(s,i,i+1);
+      }        
+    return (evenCount+oddCount);
+    }

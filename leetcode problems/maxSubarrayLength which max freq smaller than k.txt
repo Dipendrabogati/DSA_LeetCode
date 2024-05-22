@@ -1,0 +1,28 @@
+// medium 
+// Time limit exceded  
+int maxOccurance(vector<int> v){
+     int maxNum=0;
+     unordered_map<int,int> m;
+     for(int n:v){
+        m[n]++;
+        maxNum=max(maxNum,m[n]);
+     }
+     return maxNum;
+    }
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        int ans=0;
+        for(int i=0;i<nums.size();i++){
+            vector<int> sub(1,nums[i]);
+            if(0<k){
+               ans=max(ans,1);
+            }
+            for(int j=i+1;j<nums.size();j++){                
+               sub.push_back(nums[j]);               
+               if(k>=maxOccurance(sub)){
+                int n=sub.size();
+                 ans=max(n,ans);
+               }                
+            }
+        }
+        return ans;
+    }

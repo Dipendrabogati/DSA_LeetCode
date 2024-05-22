@@ -1,0 +1,18 @@
+int findBottomLeftValue(TreeNode* root) {
+       if(root==nullptr)return -1;
+       queue<TreeNode*> q;
+       int ans=0;
+       q.push(root);
+       while(!q.empty()){
+           TreeNode* currentNode = q.front();
+         if(currentNode->right!=nullptr){            
+             q.push(currentNode->right);
+         }
+         if(currentNode->left!=nullptr){            
+             q.push(currentNode->left);
+         }
+         ans=currentNode->val;
+         q.pop();
+       }
+     return ans;
+    }

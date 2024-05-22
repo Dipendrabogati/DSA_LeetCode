@@ -1,0 +1,26 @@
+bool binarySearch(vector<int> v,int n){
+       int s=0;
+       int e=v.size()-1;
+       
+       while(s<=e){
+           int mid=s+(e-s)/2;
+           cout<<"s= "<<s<<" e= "<<e<<" mid="<<mid<<"n= "<<n<<endl;
+          if(v[mid]==n){
+            cout<<"n= "<<n<<endl;
+              return true;
+          }
+          if(v[mid]>n){
+              e=mid-1;
+          }else{
+              s=mid+1;
+          }
+         
+       }
+       return false;
+    }
+    int getCommon(vector<int> nums1, vector<int> nums2) {
+        for(int i=0;i<nums1.size();i++){
+            if(binarySearch(nums2,nums1[i]))return nums1[i];
+        }
+        return -1;
+    }

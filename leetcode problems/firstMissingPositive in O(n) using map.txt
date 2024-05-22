@@ -1,0 +1,18 @@
+//Hard 
+// my first hard question solved on my on 
+
+int firstMissingPositive(vector<int>& nums) {
+       map<int,int>m;
+       for(int n:nums){
+        if(n>0)
+         m[n]++;
+       }
+       auto last=m.rbegin();
+       int i=1;      
+       for(auto pair:m){
+        if(pair.first!=i)return i;
+        if(i>last->first)break;
+        i++;       
+       }
+       return i;
+    }

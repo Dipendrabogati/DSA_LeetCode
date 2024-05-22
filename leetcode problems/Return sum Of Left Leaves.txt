@@ -1,0 +1,22 @@
+// My own code 
+//Easy
+
+int sum=0;
+    void checkRightNode(TreeNode* root){
+        if(root==NULL)return;        
+        checkLeftNode(root->left);
+        checkRightNode(root->right);
+    }
+    void checkLeftNode(TreeNode* root){
+        if(root==NULL)return;
+        if(root->left==NULL&&root->right==NULL)
+         sum+=root->val;
+        checkLeftNode(root->left);
+        checkRightNode(root->right);
+    }
+    int sumOfLeftLeaves(TreeNode* root) {
+       if(root==nullptr)return 0;
+       checkLeftNode(root->left);  
+       checkRightNode(root->right);
+       return sum;     
+    }

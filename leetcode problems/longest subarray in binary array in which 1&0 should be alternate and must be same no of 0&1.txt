@@ -1,0 +1,21 @@
+// Medium
+
+int findMaxLength(vector<int>& nums) {
+        int prev=nums[0];
+        int cur;
+        int count=1;
+        int ans=0;
+       for(int i=1;i<nums.size();i++){
+         
+           cur=nums[i];
+           if(cur^prev){
+             count++;
+             ans=max(ans,count);
+             
+           }else{
+            count=1;
+           }  
+           prev=cur;
+       }  
+       return ans%2==0?ans:ans-1;
+    }

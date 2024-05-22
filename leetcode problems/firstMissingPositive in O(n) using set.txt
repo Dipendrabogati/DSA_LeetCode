@@ -1,0 +1,18 @@
+
+//hard 
+int firstMissingPositive(std::vector<int>& nums) {
+    std::set<int> s;   
+    for (int n : nums) {
+        if (n > 0) {
+            s.insert(n);
+        }
+    }   
+    int i = 1;
+    for (int num : s) {
+        if (num != i) {
+            return i;
+        }
+        i++;
+    }   
+    return i;
+}

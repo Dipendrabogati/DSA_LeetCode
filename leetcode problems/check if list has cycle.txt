@@ -1,0 +1,11 @@
+bool hasCycle(ListNode *head) {
+     ListNode *temp=head;
+     vector<ListNode*> v; 
+     while(true){
+         if(temp==nullptr)return false;
+         auto it=find(v.begin(),v.end(),temp);
+         if(it!=v.end())return true;
+         v.push_back(temp);
+         temp=temp->next;
+     }        
+    }

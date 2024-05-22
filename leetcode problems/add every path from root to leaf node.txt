@@ -1,0 +1,19 @@
+  // Medium
+  //My own code
+
+  int sum=0;
+    void addPath(int num,TreeNode* root){
+      if(root->left==NULL&&root->right==NULL){
+        sum=sum+num*10+root->val;
+        return;
+      }
+      num=num*10+root->val;
+      if(root->left!=NULL)
+      addPath(num,root->left);
+      if(root->right!=NULL)
+      addPath(num,root->right);
+    }
+    int sumNumbers(TreeNode* root) {
+      addPath(0,root);
+      return sum;  
+    }

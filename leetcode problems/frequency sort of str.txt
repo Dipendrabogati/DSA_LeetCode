@@ -1,0 +1,22 @@
+struct DescendingOrderComparator {
+        bool operator()(const int& lhs, const int& rhs) const {
+            return lhs > rhs;
+        }
+    };
+    string frequencySort(string s) {
+        map<char, int> m;
+        multimap<int, char, DescendingOrderComparator> mD;
+        string ans;
+        for (char c : s) {
+            m[c]++;
+        }
+        for (const auto& pair : m) {
+            mD.insert({pair.second, pair.first});
+        }
+        for (const auto& pair : mD) {
+            for(int i=0;i<pair.first;i++){
+              ans.push_back(pair.second);
+            }           
+        }
+        return ans;
+    }

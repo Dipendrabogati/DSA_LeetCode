@@ -1,0 +1,19 @@
+vector<int> sortedSquares(vector<int>& nums) {
+       int n=nums.size();
+       vector<int> v(n,0);
+       int i=0,j=n-1;
+       n--;
+       while(i<=j){
+           int left=nums[i]*nums[i];
+           int right=nums[j]*nums[j];
+          if(left>=right){
+              v[n]=left;
+              i++;
+          }else{
+              v[n]=right;
+              j--;
+          }
+          n--;
+       }
+       return v;
+    }

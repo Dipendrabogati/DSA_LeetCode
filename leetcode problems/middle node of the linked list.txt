@@ -1,0 +1,10 @@
+ListNode* middleNode(ListNode* head) {
+        vector<ListNode*> v;
+        int count=0;
+        while(head!=NULL){
+            v.push_back(head);
+            count++;
+            head=head->next;
+        }
+        return v[count/2];
+    }

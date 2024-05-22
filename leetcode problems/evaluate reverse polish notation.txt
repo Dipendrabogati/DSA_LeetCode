@@ -1,0 +1,31 @@
+int evalRPN(vector<string>& tokens) {
+        vector<int> Stack;
+        set<string> Operators={"+","-","*","/"};
+        int ans;
+        if(tokens.size()==1){
+           if(Operators.find(tokens[0])==Operators.end())
+           return stoi(tokens[0]);
+        }
+        for(int i=0;i<tokens.size();i++){
+            if(Operators.find(tokens[i])!=Operators.end()){
+                int a=Stack[0];
+                Stack.erase(Stack.begin());
+                int b=Stack[0];
+                Stack.erase(Stack.begin());
+                if(tokens[i]=="+"){
+                   ans=a+b; 
+                }else
+                if(tokens[i]=="-"){
+                   ans=b-a; 
+                }else if(tokens[i]=="*"){
+                   ans=a*b; 
+                }else{
+                   ans=b/a; 
+                }
+                Stack.insert(Stack.begin(),ans);
+            }else{
+                Stack.insert(Stack.begin(),stoi(tokens[i]));
+            }
+        }
+        return ans;
+    }

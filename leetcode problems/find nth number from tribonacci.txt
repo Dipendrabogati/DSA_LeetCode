@@ -1,0 +1,15 @@
+//Easy 
+int tribonacci(int n, std::unordered_map<int, int>& memo) {
+    if (n == 0) return 0;
+    if (n == 1 || n == 2) return 1;   
+    if (memo.find(n) != memo.end()) {
+        return memo[n];
+    }   
+    int result = tribonacci(n - 3, memo) + tribonacci(n - 2, memo) + tribonacci(n - 1, memo);
+    memo[n] = result;
+    return result;
+}
+int tribonacci(int n) {
+    std::unordered_map<int, int> memo;
+    return tribonacci(n, memo);
+}

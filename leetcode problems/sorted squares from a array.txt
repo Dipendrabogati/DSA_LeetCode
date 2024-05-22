@@ -1,0 +1,8 @@
+vector<int> sortedSquares(vector<int>& nums) {
+       multiset<int> s;
+       for(int n : nums){
+           s.insert(n*n);
+       } 
+       vector<int> v(s.begin(),s.end());
+       return v;
+    }

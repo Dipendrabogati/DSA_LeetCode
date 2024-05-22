@@ -1,0 +1,17 @@
+//Easy 
+//Beats 100% of CPP users
+
+int lengthOfLastWord(string s) {
+        int ans=0;int count=0;
+        for(int i=s.length()-1;i>=0;i--){
+           if(s[i]!=' '){
+               count++;
+           }else{
+               if(count!=0){
+                   break;
+               }
+            }
+        }
+        ans=count;
+    return ans;
+    }

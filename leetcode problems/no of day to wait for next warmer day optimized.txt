@@ -1,0 +1,19 @@
+vector<int> dailyTemperatures(vector<int>& temp) {
+        int n=temp.size();
+        vector<int> ans(n,0);
+        stack<int> stk;
+        stk.push(0);int index;
+        for(int i=1;i<n;i++){          
+          while(!(stk.empty())){ 
+               index=stk.top();
+            if(temp[index]<temp[i]){
+                ans[index]=i-index;
+                stk.pop();
+            }else{
+                break;
+            }
+          }
+          stk.push(i);           
+        }       
+        return ans;
+    }

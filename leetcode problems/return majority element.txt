@@ -1,0 +1,13 @@
+int majorityElement(vector<int>& nums) {       
+        int size=nums.size();
+        map<int,int> m;
+        for(int n : nums){
+            m[n]++;
+        }   
+        for(const auto pair:m){
+            if(pair.second>(size/2)){
+                return pair.first;
+            }
+        }  
+     return -1;
+    }

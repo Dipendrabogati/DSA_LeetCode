@@ -1,0 +1,14 @@
+vector<int> rearrangeArray(vector<int>& nums) {
+       vector<int> ans(nums.size(),0);
+       int pos=0,neg=1;
+       for(int n:nums){
+           if(n>0){
+             ans[pos]=n;       
+             pos+=2;
+           }else{
+             ans[neg]=n;
+             neg+=2;
+           }
+       }
+       return ans;
+    }

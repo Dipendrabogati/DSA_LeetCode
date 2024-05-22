@@ -1,0 +1,17 @@
+
+// easy
+int pivotInteger(int n) {
+        int pivot=n;
+        while(pivot>0){
+            int s1=0,s2=0;
+            for(int i=pivot;i<=n;i++){
+                s2+=i;
+            }
+            for(int i=1;i<=pivot;i++){
+                s1+=i;
+            }
+            if(s1==s2)return pivot;
+            pivot--;
+        }
+      return -1;  
+    }
